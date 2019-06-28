@@ -1,21 +1,29 @@
 <template>
     <div class="home">
         <div class="tim-content qqpc">
-            <div class="title" v-bind:style="{'position':titlePositon,'background-color': titleColor }">这里是title</div>
+            <div class="title" v-bind:style="{'position':titlePositon,'background-color': titleColor,'border-bottom':titleBorder }">
+                <ul>
+                    <li class="logoLink">11</li>
+                    <li class="item">首页</li>
+                    <li class="item">下载</li>
+                    <li class="item">动态</li>
+                </ul>
+                
+            </div>
+            <div class="circle"></div>
         </div>
+        <div class="content-item">内容1</div>
         <div class="activebg fisrtbg" id="pic1" v-bind:style="{'background-position-x':positionX,'background-position-y': positionY1+'px' }"></div>
-        <div class="content-item"></div>
+        <div class="content-item">内容2</div>
         <div class="activebg secondbg" id="pic2" v-bind:style="{'background-position-x':positionX,'background-position-y': positionY2+'px' }"></div>
-        <div class="content-item"></div>
+        <div class="content-item">内容3</div>
         <div class="activebg thirdbg" id="pic3" v-bind:style="{'background-position-x':positionX,'background-position-y': positionY3+'px' }"></div>
-        <div class="content-item"></div>
-        <div class="foot"></div>
+        <div class="content-item">内容4</div>
+        <div class="foot">foot</div>
     </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
     name: "home",
@@ -29,12 +37,12 @@ export default {
             Y1: 0,
             Y2: 0,
             Y3: 0,
-            titlePositon:"static",
-            titleColor:"transparent"
+            titlePositon: "static",
+            titleColor: "transparent",
+            titleBorder:"0"
         };
     },
     components: {
-        HelloWorld
     },
     mounted() {
         window.addEventListener("scroll", this.handleScroll);
@@ -58,12 +66,14 @@ export default {
             this.positionY2 = this.Y2 - scrollTop * this.ratio;
             this.positionY3 = this.Y3 - scrollTop * this.ratio;
 
-            if(scrollTop>700){
+            if (scrollTop > 900) {
                 this.titlePositon = "fixed";
                 this.titleColor = "#fff";
-            }else{
+                this.titleBorder = "1px solid #e5e5e5";
+            } else {
                 this.titlePositon = "static";
                 this.titleColor = "transparent";
+                this.titleBorder = "0";
             }
         }
     }
@@ -74,18 +84,57 @@ export default {
 .home {
     height: 100%;
 }
-.title{
+.title {
     width: 100%;
-    text-align: center;
-    padding: 20px;
+    height: 75px;
     position: static;
     background-color: transparent;
     z-index: 10;
+    top: 0px;
+    left: 0px;
+    font-size: 0;
+}
+.title ul,li{
+    float: left;
+    list-style: none;
+}
+.title .item {
+    height: 75px;
+    line-height: 75px;
+    width: 75px;
+    text-align: center;
+    font-size: 20px;
+}
+.title .logoLink {
+    width: 106px;
+    height: 75px;
+    overflow: hidden;
+    font-size: 0;
+    background: transparent
+        url(//sqimg.qq.com/qq_product_operations/im/qqlogo/imlogo_b.png)
+        no-repeat left 15px;
+    margin-left: 300px;
+}
+.title .item:hover{
+    background-color: #12b7f5;
+}
+.circle {
+    position: absolute;
+    width: 100%;
+    height: 52px;
+    margin-top: -52px;
+    background: transparent url(https://sqimg.qq.com/qq_product_operations/im/2018/linearbot.png) repeat-x left top;
+    text-align: center;
+    z-index: 5;
+    bottom: 0;
 }
 .content-item {
     background-color: #fff;
     width: 100%;
-    height: 400px;
+    line-height: 400px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
 }
 .tim-content {
     position: relative;
@@ -120,8 +169,12 @@ export default {
 }
 .foot {
     background-color: black;
-    height: 800px;
+    line-height: 500px;
+    color: #fff;
+    text-align: center;
     width: 100%;
+    font-size: 30px;
+    font-weight: bold;
 }
 </style>
 
