@@ -118,10 +118,17 @@ handleScroll() {
     }
 }
 ```
+### 纯CSS实现
 
-## 具体可以将代码跑起来，可以很直观的感受
+纯CSS实现视差滚动可以参考：[小tip: 纯CSS实现视差滚动效果](https://www.zhangxinxu.com/wordpress/2015/03/css-only-parallax-effect/)
 
-## Project setup
+### 参考资料
+
+1、[vue](https://cn.vuejs.org/)
+2、项目搭建[vue-cli](https://cli.vuejs.org/zh/)
+3、[视差滚动（Parallax Scrolling）效果的原理与实现](https://www.cnblogs.com/ricesm/p/5045758.html)
+
+### Project setup
 ```
 npm install
 ```
@@ -131,20 +138,3 @@ npm install
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
